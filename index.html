@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta charset="utf-8">
+	<title>Silverline</title>
+	<link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/datepicker/dist/datepicker.min.css">
+
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
+	<script type="text/javascript" src="bower_components/datepicker/dist/datepicker.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+            $("[name=gsm]").mask("0(599) 999 99 99");
+
+            $("[name=invoice_date]").datepicker();
+
+            $(".checkbox").click(function(){
+            	$(this).toggleClass("active");
+            });
+        });
+	</script>
+</head>
+<body>
+	<div id="header-shadow">
+		<header>
+			<div class="container">
+				<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-0">
+					<img src="assets/logo.png" style="margin-top: 20px; max-width: 100%;" alt="SILVERLINE">
+				</div>
+				
+				<div class="hidden-xs col-sm-6" style="font-size:27px; text-align: right; padding-top:10px;">
+					<a href="#" class="gri" style="font-family: bebas_neueregular;margin-right: 40px;">SSS</a>
+					<a href="#" class="gri" style="font-family: bebas_neueregular;">KAMPANYA KOŞULLARI</a>
+				</div>
+			</div>
+		</header>
+	</div>
+	
+	<div class="main container">
+		<img class="hidden-xs" src="assets/kurdele.png" style="position: absolute;left: -18px;bottom: 69px;">
+
+		<div class="row" style="background: #f8f6f2; margin-bottom: 30px;">
+			<h2 style="font-family: bebas_neueregular; font-size:44px; text-align: center; margin:6px;">
+				<span class="gri">KAPINIZDA</span> <span class="kirmizi">OTOMOBİL</span><br>
+				<span class="gri">MUTFAĞINIZDA</span> <span class="kirmizi">SILVERLINE</span>
+			</h2>
+		</div>
+
+		<div class="pull-right col-xs-12 col-sm-8">
+			<p class="gri xs-text-center" style="font-size:21px; font-family: proxima_nova_rgregular;">Silverline kampanyalı ürünlerden 2 Ekim - 31 Aralık tarihleri arasında <span class="kirmizi">1.990 TL</span> ve katları tutarında alışveriş yapın, çekilişe katılın.<br>
+			<b class="kirmizi" style="font-family: proxima_nova_rgbold">Hem mutfağınız kazansın hem siz kazanın.</b></p>
+
+			<div class="col-xs-12 col-sm-8">
+				<div class="row x3-xs gri" style="background: #f8f6f2; margin-top:40px; margin-bottom: 40px;">
+					<h3>1 KİŞİYE <span class="kirmizi">VOLKSWAGEN POLO</span></h3>
+					<h3>11 KİŞİYE <span class="kirmizi">IPHONE 7</span></h3>
+					<h3>111 KİŞİYE <span class="kirmizi">FAKİR KAHVE MAKİNESİ</span></h3>
+				</div>
+				<img src="assets/polo.png" style="max-width: 120%;margin-bottom: 40px;margin-left: -5%;">
+			</div>
+			<div class="col-sm-4 hidden-xs">
+				<table style="float:right">
+					<tr>
+						<td>
+							<img src="assets/iphone7.png" style="max-width:100%; max-height: 156px; float:right;">
+						</td>
+					</tr>
+					<tr>
+						<td class="light-gri" style="padding-right:8px; text-align: right; font-family: bebas_neueregular; font-size:24px;">
+							IPHONE 7
+						</td>
+					</tr>
+				</table>
+
+				<table style="float:right; margin-top:40px;">
+					<tr>
+						<td>
+							<img src="assets/fakir-kaave.png" style="max-width:100%; max-height: 178px; float:right;">
+						</td>
+					</tr>
+					<tr>
+						<td class="light-gri" style="padding-right:8px; text-align: right; font-family: bebas_neueregular; font-size:24px;">
+							FAKİR KAAVE
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+
+
+		<div class="pull-left col-xs-12 col-sm-4">
+			
+			<div class="col-xs-12">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="text" name="name" class="custom" placeholder="AD SOYAD">
+				<img src="assets/input-right.png" class="custom-input-right">
+			</div>
+
+			<div class="col-xs-12" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="text" name="gsm" class="custom" placeholder="GSM NUMARASI">
+				<img src="assets/input-right.png" class="custom-input-right">
+			</div>
+
+			<div class="col-xs-12" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="email" name="email" class="custom" placeholder="E-POSTA ADRESİ">
+				<img src="assets/input-right.png" class="custom-input-right">
+			</div>
+
+			<div class="col-xs-12" style="margin-top:20px">
+				<img src="assets/textarea-left.png" class="custom-textarea-left">
+				<textarea name="adres" class="custom" placeholder="ADRES"></textarea>
+				<img src="assets/textarea-right.png" class="custom-textarea-right">
+			</div>
+
+			<div class="col-xs-6" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="button" class="custom" value="İL SEÇİNİZ">
+				<select style="width:100%" class="custom" name="il">
+					<option>ADANA</option>
+					<option>BURSA</option>
+				</select>
+				<img src="assets/select-right.png" class="custom-input-right custom-select-right">
+			</div>
+
+			<div class="col-xs-6" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="email" name="ilce" class="custom" placeholder="İLÇE SEÇİNİZ">
+				<img src="assets/select-right.png" class="custom-input-right custom-select-right">
+			</div>
+
+			<div class="col-xs-6" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="text" name="invoice_no" class="custom" placeholder="FİŞ-FATURA NO">
+				<img src="assets/input-right.png" class="custom-input-right">
+			</div>
+
+			<div class="col-xs-6" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="text" name="invoice_date" class="custom" placeholder="FİŞ-FTR. TARİH">
+				<img src="assets/input-date-right.png" class="custom-input-right custom-select-right">
+			</div>
+
+			<div class="col-xs-12" style="margin-top:20px">
+				<img src="assets/input-left.png" class="custom-input-left">
+				<input type="text" name="code" class="custom" placeholder="KAMPANYA ŞİFRESİ">
+				<img src="assets/input-right.png" class="custom-input-right">
+			</div>
+
+			<div class="col-xs-12" style="margin-top: 20px;">
+				<div class="g-recaptcha" data-sitekey="SITE_KEY"></div>	
+			</div>
+
+			<div class="col-xs-12" style="margin-top: 20px;">
+				<div style="width:10%;float:left;">
+					<div class="checkbox">
+						<img src="assets/checkbox-checked.png">
+					</div>
+				</div>
+				<div style="width:90%;float:left;">
+					<p class="light-gri" style="font-family: proxima_nova_ltlight, sans-serif;float: left;margin-top: 12px;">Kampanya koşullarını okudum, kabul ediyorum.</p>
+				</div>
+			</div>
+
+			<div class="col-xs-12" style="margin-top: 20px; margin-bottom: 38px;">
+				<input type="button" class="primary-button" value="KATIL">
+			</div>
+
+		</div>
+
+		<img src="assets/mobile-footer.png" class="col-xs-12 visible-xs">
+
+		<a href="#" class="secondary-button visible-xs" style="margin-top:20px;">SIKÇA SORULAN SORULAR</a>
+		<a href="#" class="secondary-button visible-xs" style="margin-top:20px;">KAMPANYA KOŞULLARI</a>
+
+		<div class="col-xs-12" style="text-align: center; margin-bottom: 12px">
+			<a href="#" target="_blank" style="display:inline-block;">
+				<img src="assets/facebook.png" alt="facebook">
+			</a>
+			<a href="#" target="_blank" style="display:inline-block; margin-left:10px; margin-right:10px;">
+				<img src="assets/twitter.png" alt="twitter">
+			</a>
+			<a href="#" target="_blank" style="display:inline-block;">
+				<img src="assets/instagram.png" alt="instagram">
+			</a>
+		</div>
+
+	</div>
+	
+	<p style="display:block; width:100%; text-align: center; font-family: proxima_nova_ltlight; font-size:12px" class="gri">© Copyright 2017 - Silverline Pazarlama A.Ş. Her hakkı saklıdır!</p>
+
+</body>
+</html>

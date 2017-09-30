@@ -1,0 +1,22 @@
+{
+  "name": "silverline",
+  "authors": [
+    "Emre Can Yılmaz <=>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery.maskedinput": "^1.4.1",
+    "datepicker": "https://github.com/fengyuanchen/datepicker.git#^0.6.1"
+  }
+}
