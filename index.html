@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta charset="utf-8">
 	<title>Silverline</title>
@@ -9,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/datepicker/dist/datepicker.min.css">
 
-	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src='https://www.google.com/recaptcha/api.js?hl=tr'></script>
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="bower_components/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
 	<script type="text/javascript" src="bower_components/datepicker/dist/datepicker.min.js"></script>
@@ -23,7 +24,74 @@
             $(".checkbox").click(function(){
             	$(this).toggleClass("active");
             });
+
+            $("select.custom").change(function(){
+            	_text = $(this).find("option:selected").text();
+            	$(this).parents(".custom-select-wrapper").find("input[type=button].custom").val(_text);
+            });
+
+            $("#katil").click(function(){
+            	if(!$("#agreement-checkbox").hasClass("active")){
+            		alert("Katılım koşullarını kabul etmeniz gerekiyor");
+            		return false;
+            	}
+
+            	if(grecaptcha.getResponse().length == 0){
+            		alert("Lütfen 'Ben robot değilim' seçeneğini işaretleyiniz.");
+            		return false;	
+            	}
+
+            	if($("[name=name]").val().length < 3){
+            		alert("Lütfen isminizi kontrol edin.");
+            		return false;
+            	}
+
+            	if($("[name=gsm]").val().length != 16){
+            		alert("Lütfen telefon numaranızı kontrol edin.");
+            		return false;
+            	}
+
+            	if(!validateEmail($("[name=email]").val())){
+            		alert("Lütfen e-posta adresinizi numaranızı kontrol edin.");
+            		return false;
+            	}
+
+            	if($("[name=adres]").val().length < 6){
+            		alert("Lütfen adresinizi kontrol edin.");
+            		return false;
+            	}
+
+            	if($("[name=il]").val() == -1){
+            		alert("Lütfen ilinizi seçin.");
+            		return false;
+            	}
+
+            	if($("[name=ilce]").val().length < 3){
+            		alert("Lütfen ilçenizi yazın.");
+            		return false;
+            	}
+
+            	if($("[name=invoice_date]").val().length != 10){
+            		alert("Lütfen fiş/fatura tarihini seçin.");
+            		return false;
+            	}
+
+            	if($("[name=invoice_no]").val().length != 10){
+            		alert("Lütfen fiş/fatura numaranızı kontrol edin.");
+            		return false;
+            	}
+
+
+            	
+            	
+
+            });
         });
+
+        function validateEmail(email) {
+		  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		  return re.test(email);
+		}
 	</script>
 </head>
 <body>
@@ -121,10 +189,11 @@
 				<img src="assets/textarea-right.png" class="custom-textarea-right">
 			</div>
 
-			<div class="col-xs-6" style="margin-top:20px">
+			<div class="col-xs-6 custom-select-wrapper" style="margin-top:20px">
 				<img src="assets/input-left.png" class="custom-input-left">
 				<input type="button" class="custom" value="İL SEÇİNİZ">
 				<select style="width:100%" class="custom" name="il">
+					<option selected="selected" value="-1">İL SEÇİNİZ</option>
 					<option>ADANA</option>
 					<option>BURSA</option>
 				</select>
@@ -133,8 +202,8 @@
 
 			<div class="col-xs-6" style="margin-top:20px">
 				<img src="assets/input-left.png" class="custom-input-left">
-				<input type="email" name="ilce" class="custom" placeholder="İLÇE SEÇİNİZ">
-				<img src="assets/select-right.png" class="custom-input-right custom-select-right">
+				<input type="ilce" name="ilce" class="custom" placeholder="İLÇE">
+				<img src="assets/input-right.png" class="custom-input-right">
 			</div>
 
 			<div class="col-xs-6" style="margin-top:20px">
@@ -145,7 +214,7 @@
 
 			<div class="col-xs-6" style="margin-top:20px">
 				<img src="assets/input-left.png" class="custom-input-left">
-				<input type="text" name="invoice_date" class="custom" placeholder="FİŞ-FTR. TARİH">
+				<input type="text" name="invoice_date" class="custom" placeholder="FİŞ-FTR. TARİH" style="position: relative;">
 				<img src="assets/input-date-right.png" class="custom-input-right custom-select-right">
 			</div>
 
@@ -161,7 +230,7 @@
 
 			<div class="col-xs-12" style="margin-top: 20px;">
 				<div style="width:10%;float:left;">
-					<div class="checkbox">
+					<div class="checkbox" id="agreement-checkbox">
 						<img src="assets/checkbox-checked.png">
 					</div>
 				</div>
@@ -171,7 +240,7 @@
 			</div>
 
 			<div class="col-xs-12" style="margin-top: 20px; margin-bottom: 38px;">
-				<input type="button" class="primary-button" value="KATIL">
+				<input type="button" class="primary-button" value="KATIL" id="katil">
 			</div>
 
 		</div>

@@ -65,6 +65,8 @@ a.gri:hover {
 	margin-right: -45px;
 }
 
+
+
 input.custom {
 	background-color: transparent;
 	background-image: url(assets/input-bg.png);
@@ -211,6 +213,8 @@ textarea.custom {
 	background: -webkit-linear-gradient(top, #ff3d00 0%,#ff6b00 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, #ff3d00 0%,#ff6b00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3d00', endColorstr='#ff6b00',GradientType=0 ); /* IE6-9 */
+	color: white;
+	text-decoration: none;
 }
 
 .secondary-button {
